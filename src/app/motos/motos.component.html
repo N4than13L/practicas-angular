@@ -1,0 +1,54 @@
+<h2>{{titulo}}</h2>
+
+<ul>
+     <!-- *ngFor y *ngIf juntos -->
+     <li *ngFor="let motores of motos"><strong><p>{{motores.marca}}</p></strong>
+          - {{motores.stock}} 
+          <span *ngIf="motores.stock <= 6"
+               [style.background-color]="motores.stock <= 6 ? 'green' : 'white'"
+               [style.color] = "motores.stock <= 6 ? 'white' : 'black'"
+          >Udidades disponibles</span>
+     </li>
+
+     <h2>Aqui se encuentran las diferentes categorias</h2>
+     <li *ngFor="let estilosDeMotos of motos"><p>{{estilosDeMotos.tipo}}</p></li>
+
+</ul>
+
+<p>El color de la mayoria de nuestas motos es:</p>
+
+<input type="text" [(ngModel)]="color" />
+
+<ul [ngSwitch]="color">
+
+     <li *ngSwitchCase="'yellow'">
+          el color predominante es el <span [ngStyle]="{
+               'background': color
+          }" ></span> 
+     </li>
+
+     <li *ngSwitchCase="'green'">
+          el color predominante es el <span [ngStyle]="{
+               'background': color
+          }">{{color}}</span>
+     </li>
+
+     <li *ngSwitchCase="'red'">
+          el color predominante es el <span [ngStyle]="{
+               'background': color
+          }">{{color}}</span>
+     </li>
+
+     <li *ngSwitchCase="'orange'">
+          el color predominante es el <span [ngStyle]="{
+               'background': color
+          }">{{color}}</span>
+     </li>
+
+     <li *ngSwitchCase="'blue'">
+          el color predominante es el <span [ngStyle]="{
+               'background': color
+          }">{{color}}</span>
+     </li>
+     
+</ul>
